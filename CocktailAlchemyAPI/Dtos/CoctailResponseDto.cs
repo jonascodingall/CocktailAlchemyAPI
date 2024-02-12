@@ -15,10 +15,10 @@ namespace CocktailAlchemyAPI.Dtos
         public string Alcoholic { get; set; }
         public string Glass { get; set; }
         public string Instructions { get; set; }
-        public Dictionary<string, string> InstructionsInLanguages { get; set; } // Use a dictionary for instructions in multiple languages
+        public Dictionary<string, string> InstructionsInLanguages { get; set; }
         public string ImageUrl { get; set; }
-        public List<string> Ingredients { get; set; } // Use a list for ingredients
-        public List<string> Measures { get; set; } // Use a list for measures
+        public List<string> Ingredients { get; set; }
+        public List<string> Measures { get; set; }
         public string ImageSource { get; set; }
         public string ImageAttribution { get; set; }
         public string CreativeCommonsConfirmed { get; set; }

@@ -4,12 +4,6 @@ namespace CocktailAlchemyAPI.Dtos
 {
 #nullable disable
 
-    public class DrinksResponseDto
-    {
-        [JsonPropertyName("drinks")]
-        public List<CoctailInputResponseDto> Drinks { get; set; }
-    }
-
     public class CoctailInputResponseDto
     {
         [JsonPropertyName("idDrink")]

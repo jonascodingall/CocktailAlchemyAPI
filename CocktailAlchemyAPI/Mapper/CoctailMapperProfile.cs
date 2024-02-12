@@ -35,6 +35,7 @@ namespace CocktailAlchemyAPI.Mapper
                 .ForMember(dest => dest.ImageAttribution, opt => opt.MapFrom(src => src.ImageAttribution))
                 .ForMember(dest => dest.CreativeCommonsConfirmed, opt => opt.MapFrom(src => src.CreativeCommonsConfirmed))
                 .ForMember(dest => dest.DateModified, opt => opt.MapFrom(src => src.DateModified));
+            
         }
 
         private List<string> GetIngredientsList(CoctailInputResponseDto src)

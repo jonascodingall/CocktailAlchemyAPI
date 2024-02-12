@@ -25,7 +25,7 @@ namespace CocktailAlchemyAPI.Controllers
         {
             var drinks = await _cocktailClient.GetCocktailByName(search);
             var response = _mapper.Map<List<CoctailResponseDto>>(drinks.Drinks);
-            return drinks.Drinks == null ? NotFound() : Ok(response);
+            return response == null ? NotFound() : Ok(response);
         }
 
         [HttpGet("GetCocktailByFirstLetter/{search}")]
@@ -33,7 +33,23 @@ namespace CocktailAlchemyAPI.Controllers
         {
             var drinks = await _cocktailClient.GetCocktailByFirstLetter(search);
             var response = _mapper.Map<List<CoctailResponseDto>>(drinks.Drinks);
-            return drinks.Drinks == null ? NotFound() : Ok(response);
+            return response == null ? NotFound() : Ok(response);
+        }
+
+        [HttpGet("GetAlcoholicDrinks")]
+        public async Task<ActionResult<IEnumerable<CoctailResponseDto>>> GetAlcoholicDrinks()
+        {
+            var drinks = await _cocktailClient.GetAlcoholicDrinks();
+            var response = _mapper.Map<List<CoctailResponseDto>>(drinks.Drinks);
+            return response == null ? NotFound() : Ok(response);
+        }
+
+        [HttpGet("GetNonAlcoholicDrinks")]
+        public async Task<ActionResult<IEnumerable<CoctailResponseDto>>> GetNonAlcoholicDrinks()
+        {
+            var drinks = await _cocktailClient.GetNonAlcoholicDrinks();
+            var response = _mapper.Map<List<CoctailResponseDto>>(drinks.Drinks);
+            return response == null ? NotFound() : Ok(response);
         }
     }
 }
