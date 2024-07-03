@@ -1,3 +1,7 @@
+using System.Reflection;
+using CocktailAlchemyAPI.Clients;
+using Refit;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +10,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+builder.Services
+    .AddRefitClient<ICocktailClient>()
+    .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://www.thecocktaildb.com/api/json/v1/1"));
 
 var app = builder.Build();
 
